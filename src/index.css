@@ -1,0 +1,16 @@
+/*Ojo: aqui solo van estilos globales, no de componentes*/
+/*Los estilos de componentes van en su respectivo archivo .css*/
+
+:root {
+  /*
+  aqui van las variables globales CSS
+  */
+}
+
+body {
+  /* estilos globales del body */
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+  color: #b13535;
+}

@@ -1,0 +1,16 @@
+/*Ojo: aqui solo van estilos globales, no de componentes*/
+/*Los estilos de componentes van en su respectivo archivo .css*/
+
+/*tambien el css de los componentes directos del app.jsx */
+
+#root {
+  /*
+  aqui se renderiza la app
+  */
+}
+
+main {
+  /*
+  aqui va el contenedor principal de la app
+  */
+}
