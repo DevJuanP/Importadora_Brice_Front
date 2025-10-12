@@ -16,7 +16,7 @@ const Footer = () => {
 
         </div>
        <div className="RedesSociales">
-         <h3>Redes Sociales</h3>
+         <h3>Síguenos en nuestras redes sociales</h3>
           <div className="imgs">
             <img src="https://c0.klipartz.com/pngpicture/259/480/gratis-png-iconos-de-computadora-facebook-inc-facebook.png" alt="" />
             <img src="https://thumbs.dreamstime.com/b/logotipo-de-instagram-blanco-y-negro-cuadrado-en-con-archivo-ai-vectorial-f%C3%A1cil-editar-fondo-alta-resoluci%C3%B3n-192780656.jpg" alt="Instagram" />
