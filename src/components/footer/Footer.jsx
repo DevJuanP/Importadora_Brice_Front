@@ -10,7 +10,8 @@ const Footer = () => {
             <div className="imgs">
             <img src="https://logosenvector.com/logo/img/logo-yape-negro-38214.png" alt="Medios de pago" />
             <img src="https://logosenvector.com/logo/img/icon-plin-38302.png" alt="Medios de pago" />
-            <img src="https://tse1.mm.bing.net/th/id/OIP.U962GH1FINqCjHDKFW0QBAHaGE?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Medios de pago" />
+            <img src="https://i.pinimg.com/736x/18/2d/ab/182dab0df64b53757f7ae5b43ac90e50.jpg" alt="Medios de pago" />
+            <img src="https://i.pinimg.com/originals/66/da/30/66da3008533a4a5684aa190750dab499.gif" alt="" />
            </div>
 
         </div>
