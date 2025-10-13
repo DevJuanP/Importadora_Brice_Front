@@ -1,0 +1,87 @@
+.contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #bc1717;
+
+}
+.icono{
+    border: #000000 solid 3px;
+    border-radius: 15px;
+    background-color: rgb(255, 255, 255);
+}
+#Iniciartxt{
+    font-size: 34px;
+    font-weight: bold;
+    margin: 20px 0;
+    color: #000000;
+}
+
+
+.login{
+    padding: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height:auto;
+    background-color: #ffffff;
+    background: linear-gradient(135deg, #faf6f6, #111111);
+ 
+    border-radius: 50px;
+    width: auto;
+    max-width: 400px;
+    box-shadow: #000000 10px 10px 20px 2px;
+    
+}
+.entrada{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border: #000000 solid 3px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #8121a1;
+    width: 100%;
+}
+
+
+.recordar{
+    display: flex;
+    width: 100%;
+    font-size: 14px;
+    color: #000000;
+}
+.recordar input{
+    
+    margin-right: 5px;
+    margin-bottom: 14px;
+}
+.BTN{
+    color: white;
+    background-color: #000000;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+}
+.BTN:hover ,.google:hover{
+    background-color: #333333;
+}
+.google{
+    color: white;
+    display: flex;
+    margin-top: 20px;
+    border: #000000 solid 3px;
+    padding: 0px 1px;
+    border-radius: 10px;
+    background-color: #000000;
+    cursor: pointer;
+    width: 100%;
+    align-items: center;
+    
+}
