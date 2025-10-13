@@ -11,9 +11,7 @@ function App() {
     <>
       <Header />
       <main>
-        <Banner />
-
-        <Oferta />
+        
         <Outlet />
       </main>
       <Footer />
