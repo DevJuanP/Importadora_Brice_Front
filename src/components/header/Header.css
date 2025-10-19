@@ -32,13 +32,9 @@
 
 /* Ajuste del icono toggler si no usas navbar-dark */
 .navbar[data-theme="dark"] .navbar-toggler-icon {
-    filter: invert(1) brightness(2) !important; /* alternativa si la imagen del icono no se ve */
+    filter: invert(1) brightness(2) !important; 
 }
 
-.vr {
-    background-color: #ffffff !important;
-    opacity: 1 !important;
-}
 /* Forzar icono toggler en blanco */
 .navbar .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
@@ -66,4 +62,34 @@
 .btn-cart{
     border: none !important;
 }
+
+.dropdown-toggle::after {
+    display: none !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Offcanvas debajo del navbar */
+/* .custom-offcanvas {
+    height: 90.5vh !important;
+} */
+
+/* Quita el oscurecimiento del fondo */
+/* .offcanvas-backdrop.show {
+    opacity: 0 !important;
+} */
+
+
+
 

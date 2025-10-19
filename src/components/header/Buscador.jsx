@@ -8,7 +8,7 @@ const Buscador = () => {
             <form
                 class="d-flex"
                 role="search"
-                style={{ width: '550px', height: '42px', marginLeft: '80px' }}
+                style={{ width: '550px', height: '42px', marginLeft: '40px', marginRight: '40px' }}
             >
                 <input
                 class="form-control rounded-start rounded-end-0 border-0"
