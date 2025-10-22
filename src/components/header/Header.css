@@ -1,23 +1,23 @@
-/* Header.css */
 .bg-black {
     background-color: #000 !important;
 }
 
 /* Texto blanco dentro del navbar */
-.navbar .nav-link,
-.navbar .navbar-brand,
-.navbar .menu,
-.navbar .btn,
-.navbar i {
-    color: #fff !important;
+.navbar .nav-link {
+    color: #000 !important;
 }
 
-/* Asegurar que los links cuando estén activos o hover sigan blancos */
-.navbar .nav-link:hover,
-.navbar .nav-link:focus,
-.navbar .nav-link.active {
+.navbar .navbar-brand,
+.navbar .btn,
+.navbar .menu {
     color: #fff !important;
 }
+/* Asegurar que los links cuando estén activos o hover sigan blancos */
+/* .navbar .nav-link:hover,
+.navbar .nav-link:focus,
+.navbar .nav-link.active {
+    color: #000 !important;
+} */
 
 /* Si usas .btn con background transparente, evita cambio de color al hacer hover */
 .navbar .btn.border-0:hover {

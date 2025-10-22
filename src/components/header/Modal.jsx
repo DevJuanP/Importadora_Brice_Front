@@ -4,74 +4,104 @@ import './Header.css'
 const Modal = () => {
     return (
         <Fragment>
-            {/* Modal Menú lateral */}
-            <div
+        {/* Modal Menú lateral */}
+        <div
             className="offcanvas offcanvas-start custom-offcanvas "
             tabIndex="-1"
             id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel"
-            >
+        >
             <div className="offcanvas-header">
-                <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
-                Menú
-                </h5>
-                <button
+            <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
+                CATEGORIAS
+            </h5>
+            <button
                 type="button"
                 className="btn-close"
                 data-bs-dismiss="offcanvas"
                 aria-label="Close"
-                ></button>
+            ></button>
             </div>
 
             <div className="offcanvas-body">
-                <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li className="nav-item">
-                    <Link className="nav-link active" to="/">
-                    Home
-                    </Link>
+                <Link className="nav-link" to="/productos">
+                    <i class="bi bi-house-fill"></i> Hogar y Cocina
+                </Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to="/productos">
-                    Productos
-                    </Link>
+                <Link className="nav-link" to="/productos">
+                    <i class="bi bi-backpack-fill"></i> Viaje y Camping
+                </Link>
                 </li>
-                </ul>
+                <li className="nav-item">
+                <Link className="nav-link" to="/productos">
+                    <i class="bi bi-bucket-fill"></i> Limpieza y Cuidado del Hogar
+                </Link>
+                </li>
+                <li className="nav-item">
+                <Link className="nav-link" to="/productos">
+                    <i class="bi bi-phone"></i> Electrónica y Tecnología
+                </Link>
+                </li>
+                <li className="nav-item">
+                <Link className="nav-link" to="/productos">
+                    <i class="bi bi-dribbble"></i> Deportes y Fitness
+                </Link>
+                </li>
+                <li className="nav-item">
+                <Link className="nav-link" to="/productos">
+                    <i class="bi bi-briefcase-fill"></i> Oficina y Escolar
+                </Link>
+                </li>
+                <li className="nav-item">
+                <Link className="nav-link" to="/productos">
+                    <i class="bi bi-flower1"></i> Jardinería
+                </Link>
+                </li>
+                <li className="nav-item">
+                <Link className="nav-link" to="/productos">
+                    <i class="bi bi-bag-heart-fill"></i> Cuidado Personal
+                </Link>
+                </li>
+            </ul>
             </div>
-            </div>
+        </div>
 
-            {/* Modal ubicación */}
-            <div
+        {/* Modal ubicación */}
+        <div
             className="modal fade"
             id="exampleModal"
             tabIndex="-1"
             aria-labelledby="exampleModalLabel"
             aria-hidden="true"
-            >
+        >
             <div className="modal-dialog">
-                <div className="modal-content">
+            <div className="modal-content">
                 <div className="modal-header">
-                    <h1 className="modal-title fs-5" id="exampleModalLabel">
+                <h1 className="modal-title fs-5" id="exampleModalLabel">
                     Elige dónde recibir tus compras
-                    </h1>
-                    <button
+                </h1>
+                <button
                     type="button"
                     className="btn-close"
                     data-bs-dismiss="modal"
                     aria-label="Close"
-                    ></button>
+                ></button>
                 </div>
                 <div className="modal-body text-center">
-                    Te mostraremos los productos disponibles en tu zona, junto con
-                    el tiempo y costo de entrega.
+                Te mostraremos los productos disponibles en tu zona, junto con el
+                tiempo y costo de entrega.
                 </div>
                 <div className="modal-footer d-flex justify-content-center">
-                    <button type="button" className="btn bg-dark text-white">
+                <button type="button" className="btn bg-dark text-white">
                     Aceptar
-                    </button>
-                </div>
+                </button>
                 </div>
             </div>
             </div>
+        </div>
         </Fragment>
     )
 }
