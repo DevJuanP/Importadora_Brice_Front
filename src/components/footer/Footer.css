@@ -1,31 +1,24 @@
-.datos
-{
+.datos {
     align-items: center ;
     color:white;
     display:flex;
     justify-content:space-around;
     margin-top:50px;
     width:100%;
-    height:200px;
+    height:300px;
     background-color:rgb(0, 0, 0);
 }
 
-.MediosDePago, .RedesSociales, .InfoContacto{
+/* .MediosDePago, .RedesSociales, .InfoContacto{
+    display: flex;
+} */
+/* .imgs{
     display: block;
-    text-align: center;
-}
-.imgs{
-    display: block;
-}
+} */
 .imgs img{
     width: 75px;
     height: 75px;
     margin: 10px 20px;
-   border: 3px solid rgb(255, 255, 255);
- border-radius: 10px;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 10px;
 }
-
-
-   
-   
-    
