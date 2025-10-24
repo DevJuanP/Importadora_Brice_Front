@@ -6,7 +6,7 @@ import CarruselTarjetas from '../../components/carrusel/CarruselTarjetas'
 
 const Home = () => {
   return (
-    <Fragment>
+    <Fragment> 
       <Banner />
       <Oferta />
       <CarruselTarjetas/>

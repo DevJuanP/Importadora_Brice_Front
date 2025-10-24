@@ -27,42 +27,42 @@ const Modal = () => {
             <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li className="nav-item">
                 <Link className="nav-link" to="/productos">
-                    <i class="bi bi-house-fill"></i> Hogar y Cocina
+                    <i className="bi bi-house-fill"></i> Hogar y Cocina
                 </Link>
                 </li>
                 <li className="nav-item">
                 <Link className="nav-link" to="/productos">
-                    <i class="bi bi-backpack-fill"></i> Viaje y Camping
+                    <i className="bi bi-backpack-fill"></i> Viaje y Camping
                 </Link>
                 </li>
                 <li className="nav-item">
                 <Link className="nav-link" to="/productos">
-                    <i class="bi bi-bucket-fill"></i> Limpieza y Cuidado del Hogar
+                    <i className="bi bi-bucket-fill"></i> Limpieza y Cuidado del Hogar
                 </Link>
                 </li>
                 <li className="nav-item">
                 <Link className="nav-link" to="/productos">
-                    <i class="bi bi-phone"></i> Electrónica y Tecnología
+                    <i className="bi bi-phone"></i> Electrónica y Tecnología
                 </Link>
                 </li>
                 <li className="nav-item">
                 <Link className="nav-link" to="/productos">
-                    <i class="bi bi-dribbble"></i> Deportes y Fitness
+                    <i className="bi bi-dribbble"></i> Deportes y Fitness
                 </Link>
                 </li>
                 <li className="nav-item">
                 <Link className="nav-link" to="/productos">
-                    <i class="bi bi-briefcase-fill"></i> Oficina y Escolar
+                    <i className="bi bi-briefcase-fill"></i> Oficina y Escolar
                 </Link>
                 </li>
                 <li className="nav-item">
                 <Link className="nav-link" to="/productos">
-                    <i class="bi bi-flower1"></i> Jardinería
+                    <i className="bi bi-flower1"></i> Jardinería
                 </Link>
                 </li>
                 <li className="nav-item">
                 <Link className="nav-link" to="/productos">
-                    <i class="bi bi-bag-heart-fill"></i> Cuidado Personal
+                    <i className="bi bi-bag-heart-fill"></i> Cuidado Personal
                 </Link>
                 </li>
             </ul>

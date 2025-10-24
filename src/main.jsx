@@ -18,6 +18,8 @@ import { lazy } from 'react'
 import DashboardLayout from './layout/Dashboard/index.jsx'
 import Loadable from './components/Loadable.jsx'
 
+import ProductList from './components/ProductList/ProductList.jsx'
+
 const DashboardDefault = Loadable(
   lazy(() => import('./pages/dashboard/Default.jsx'))
 )
@@ -48,6 +50,7 @@ createRoot(document.getElementById('root')).render(
             <Route path="/" element={<App />}>
               <Route index element={<Home />} />
               <Route path="*" element={<h1>404 Not Found</h1>} />
+              <Route path="/productos" element={<ProductList />} />
             </Route>
 
             {/* Página de login fuera del layout */}

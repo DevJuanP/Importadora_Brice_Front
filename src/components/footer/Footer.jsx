@@ -5,13 +5,6 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="datos">
-        <div className="div textos-footer">
-          <p>inicio</p>
-          <p>inicio</p>
-          <p>inicio</p>
-          <p>inicio</p>
-          <p>inicio</p>
-        </div>
         <div className="MediosDePago">
           <h3>Medios de pago</h3>
           <div className="imgs">

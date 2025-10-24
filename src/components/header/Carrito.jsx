@@ -5,8 +5,9 @@ const Carrito = () => {
     return (
         <Fragment>
             {/* carrito */}
-            <Link className="btn-cart btn p-2">
-                <i class="bi bi-cart3 fs-1"></i>
+            <Link to="/carrito" className="btn-cart btn p-2">
+                <i className="bi bi-cart3 fs-1"></i>
+                <span className='counter'>0</span>
             </Link>
         </Fragment>
     )
