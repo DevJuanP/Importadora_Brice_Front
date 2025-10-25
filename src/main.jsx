@@ -42,7 +42,6 @@ const RegisterPage = Loadable(lazy(() => import('./pages/auth/Register.jsx')));
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-<<<<<<< HEAD
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
@@ -83,6 +82,6 @@ createRoot(document.getElementById('root')).render(
         </BrowserRouter>
       </ScrollTop>
     </ThemeCustomization>
->>>>>>> 54407d973df0be11cbf3bc716c244e00ea30e691
+ 54407d973df0be11cbf3bc716c244e00ea30e691
   </StrictMode>
 )
