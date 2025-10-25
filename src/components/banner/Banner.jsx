@@ -1,7 +1,30 @@
 import axios from 'axios'
-import React from 'react'
+import React, { useState } from 'react'
 import './Banner.css'
+import { useEffect } from 'react'
+
 const Banner = () => {
+  const [imgs, SetImgs] = useState([])
+
+  useEffect( () => {
+
+    const getIngsBanner = async () =>{
+      try {
+        const result = await axios.get('http://localhost:4000/banner')
+        SetImgs(result.data)
+        console.log('imgs banner', imgs)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    getIngsBanner();
+
+    return () => {
+      
+    }
+  }, )
+
   /*    const [user, setUser] = useState();
 
     const prueba = async () => {
@@ -49,16 +72,16 @@ const Banner = () => {
         <div className="carousel-cont-item h-40">
           <div className="carousel-item active">
             <img
-              src="/src/img/fondos-de-batman-2u9vxf6psc25d15m.jpg"
+              src={imgs[0]}
               className=""
               alt="..."
             />
           </div>
           <div className="carousel-item">
-            <img src="/src/img/maxresdefault.jpg" className="" alt="..." />
+            <img src={imgs[1]} className="" alt="..." />
           </div>
           <div className="carousel-item">
-            <img src="/src/img/maxresdefault.jpg" className="" alt="..." />
+            <img src={imgs[2]} className="" alt="..." />
           </div>
         </div>
         <button

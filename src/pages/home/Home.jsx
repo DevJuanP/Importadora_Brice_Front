@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+import Banner from '../../components/banner/Banner'
+import Oferta from '../../components/ofertas24hrs/Oferta'
+import CarruselTarjetas from '../../components/carrusel/CarruselTarjetas'
+
 
 const Home = () => {
   return (
-    <div>estas en el Home como etsas</div>
+    <Fragment> 
+      <Banner />
+      <Oferta />
+      <CarruselTarjetas/>
+    </Fragment>
   )
 }
 

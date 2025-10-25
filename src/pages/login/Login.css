@@ -1,0 +1,110 @@
+.contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #F6F5FB;
+
+}
+.Iniciartxt{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    color: #464646;
+}
+
+.texto1{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19.2px;
+    color: #464646;
+    margin-bottom: 30px;
+}
+
+.login{
+    padding: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 20px;
+    width: auto;
+    height:auto;
+    
+}
+.entrada{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border: #CBCBCB solid 1px;
+    padding: 10px;
+    border-radius: 10px;
+    /* background-color: #8121a1; */
+    width: 100%;
+}
+
+
+.recordar{
+    display: flex;
+    width: 100%;
+    font-size: 14px;
+    color: #000000;
+    margin-left: 50px;
+}
+.recordar input{
+    
+    margin-right: 5px;
+    margin-bottom: 14px;
+}
+.BTN{
+    color: white;
+    background-color: #FF9BD2;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    height: 45px;
+    width:300px;
+    margin-top: 10px;
+    border: transparent;
+    transition: all 0.2s ease-in-out; 
+}
+.BTN:hover, .google:hover{
+    background-color: #CBCBCB;
+    color: #464646;
+    border: #464646 solid 1px;
+}
+.google {
+    display: flex;
+    align-items: center;            
+    justify-content: center;        
+    gap: 10px;                      
+    margin-top: 20px;
+    margin-bottom: 15px;
+    border: 1px solid #000;         
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #464646;
+    cursor: pointer;
+    height: 45px;
+    width: 300px;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out; 
+}
+
+.input-text{
+    width: 250px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.icon-per{
+    width: 30px;
+    margin-left: 10px;
+    color: #CBCBCB;
+}

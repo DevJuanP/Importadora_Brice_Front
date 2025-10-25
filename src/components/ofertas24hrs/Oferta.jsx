@@ -1,4 +1,4 @@
-import React from 'react'
+ import React from 'react'
 import './Oferta.css'
 export default function Oferta() {
   return (
