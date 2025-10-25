@@ -15,10 +15,11 @@ createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<Home />} />
-          { /*aquí ponen las otras rutas para que rendericen en el Oulet de app.jsx*/}
+          {/*aquí ponen las otras rutas para que rendericen en el Oulet de app.jsx*/}
+         
           <Route path="*" element={<h1>404 Not Found</h1>} />
         </Route>
-        <Route path="/login" element={<Login />} />
+         <Route path="login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
