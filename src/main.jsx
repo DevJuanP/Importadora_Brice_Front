@@ -42,19 +42,6 @@ const RegisterPage = Loadable(lazy(() => import('./pages/auth/Register.jsx')));
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-<<<<<<< HEAD
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route index element={<Home />} />
-          {/*aquí ponen las otras rutas para que rendericen en el Oulet de app.jsx*/}
-         
-          <Route path="*" element={<h1>404 Not Found</h1>} />
-        </Route>
-         <Route path="login" element={<Login />} />
-      </Routes>
-    </BrowserRouter>
-=======
     <ThemeCustomization>
       <ScrollTop>
         <BrowserRouter>
@@ -62,8 +49,8 @@ createRoot(document.getElementById('root')).render(
             {/* Layout principal (tu App.jsx con Header y Footer) */}
             <Route path="/" element={<App />}>
               <Route index element={<Home />} />
+              <Route path="productos" element={<ProductList />} />
               <Route path="*" element={<h1>404 Not Found</h1>} />
-              <Route path="/productos" element={<ProductList />} />
             </Route>
 
             {/* Página de login fuera del layout */}
@@ -83,6 +70,5 @@ createRoot(document.getElementById('root')).render(
         </BrowserRouter>
       </ScrollTop>
     </ThemeCustomization>
->>>>>>> 54407d973df0be11cbf3bc716c244e00ea30e691
   </StrictMode>
 )
