@@ -21,7 +21,7 @@ import Loadable from './components/Loadable.jsx'
 import ProductList from './components/ProductList/ProductList.jsx'
 
 const DashboardDefault = Loadable(
-  lazy(() => import('./pages/dashboard/Default.jsx'))
+  lazy(() => import('./pages/dashboard/default.jsx'))
 )
 const Typography = Loadable(
   lazy(() => import('./pages/component-overview/typography.jsx'))

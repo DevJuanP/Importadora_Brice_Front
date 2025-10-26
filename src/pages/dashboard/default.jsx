@@ -1,42 +1,45 @@
 // material-ui
-import Avatar from '@mui/material/Avatar';
-import AvatarGroup from '@mui/material/AvatarGroup';
-import Button from '@mui/material/Button';
-import Grid from '@mui/material/Grid';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import Avatar from '@mui/material/Avatar'
+import AvatarGroup from '@mui/material/AvatarGroup'
+import Button from '@mui/material/Button'
+import Grid from '@mui/material/Grid'
+import List from '@mui/material/List'
+import ListItem from '@mui/material/ListItem'
+import ListItemAvatar from '@mui/material/ListItemAvatar'
+import ListItemButton from '@mui/material/ListItemButton'
+import ListItemText from '@mui/material/ListItemText'
+import Stack from '@mui/material/Stack'
+import Typography from '@mui/material/Typography'
+import Box from '@mui/material/Box'
+import Divider from '@mui/material/Divider'
 
 // project imports
-import MainCard from '../../components/MainCard.jsx';
-import AnalyticEcommerce from '../../components/cards/statistics/AnalyticEcommerce.jsx';
-import MonthlyBarChart from '../../sections/dashboard/default/MonthlyBarChart.jsx';
-import ReportAreaChart from '../../sections/dashboard/default/ReportAreaChart.jsx';
-import UniqueVisitorCard from '../../sections/dashboard/default/UniqueVisitorCard.jsx';
-import SaleReportCard from '../../sections/dashboard/default/SaleReportCard.jsx';
-import OrdersTable from '../../sections/dashboard/default/OrdersTable.jsx';
+import MainCard from '../../components/MainCard.jsx'
+import AnalyticEcommerce from '../../components/cards/statistics/AnalyticEcommerce.jsx'
+import MonthlyBarChart from '../../sections/dashboard/default/MonthlyBarChart.jsx'
+import ReportAreaChart from '../../sections/dashboard/default/ReportAreaChart.jsx'
+import UniqueVisitorCard from '../../sections/dashboard/default/UniqueVisitorCard.jsx'
+import SaleReportCard from '../../sections/dashboard/default/SaleReportCard.jsx'
+import OrdersTable from '../../sections/dashboard/default/OrdersTable.jsx'
 
 // assets
-import GiftOutlined from '@ant-design/icons/GiftOutlined';
-import MessageOutlined from '@ant-design/icons/MessageOutlined';
-import SettingOutlined from '@ant-design/icons/SettingOutlined';
+import GiftOutlined from '@ant-design/icons/GiftOutlined'
+import MessageOutlined from '@ant-design/icons/MessageOutlined'
+import SettingOutlined from '@ant-design/icons/SettingOutlined'
 
-import avatar1 from '../../assets/images/users/avatar-1.png';
-import avatar2 from '../../assets/images/users/avatar-2.png';
-import avatar3 from '../../assets/images/users/avatar-3.png';
-import avatar4 from '../../assets/images/users/avatar-4.png';
+import avatar1 from '../../assets/images/users/avatar-1.png'
+import avatar2 from '../../assets/images/users/avatar-2.png'
+import avatar3 from '../../assets/images/users/avatar-3.png'
+import avatar4 from '../../assets/images/users/avatar-4.png'
+import { Alert } from 'bootstrap/dist/js/bootstrap.bundle.min.js'
+import axios from 'axios'
 
 // avatar style
 const avatarSX = {
   width: 36,
   height: 36,
-  fontSize: '1rem'
-};
+  fontSize: '1rem',
+}
 
 // action style
 const actionSX = {
@@ -45,8 +48,31 @@ const actionSX = {
   top: 'auto',
   right: 'auto',
   alignSelf: 'flex-start',
-  transform: 'none'
-};
+  transform: 'none',
+}
+//reportes
+ 
+const handleReportDownload = async () => {
+  try {
+    const response = await axios.get('http://localhost:4000/report/productos', {
+      responseType: 'blob', // importante para descargar archivos
+    } )
+
+    const url = window.URL.createObjectURL(new Blob([response.data]))
+    const link = document.createElement('a')
+    link.href = url
+    link.download = 'reporte_productos.pdf' // nombre del archivo
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    link.remove()
+  } catch (error) {
+    console.error('Error downloading report:', error)
+    Alert('Failed to download report. Please try again later.')
+  }
+}
+
+
 
 // ==============================|| DASHBOARD - DEFAULT ||============================== //
 
@@ -58,18 +84,45 @@ export default function DashboardDefault() {
         <Typography variant="h5">Dashboard</Typography>
       </Grid>
       <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
-        <AnalyticEcommerce title="Total Page Views" count="4,42,236" percentage={59.3} extra="35,000" />
+        <AnalyticEcommerce
+          title="Total Page Views"
+          count="4,42,236"
+          percentage={59.3}
+          extra="35,000"
+        />
       </Grid>
       <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
-        <AnalyticEcommerce title="Total Users" count="78,250" percentage={70.5} extra="8,900" />
+        <AnalyticEcommerce
+          title="Total Users"
+          count="78,250"
+          percentage={70.5}
+          extra="8,900"
+        />
       </Grid>
       <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
-        <AnalyticEcommerce title="Total Order" count="18,800" percentage={27.4} isLoss color="warning" extra="1,943" />
+        <AnalyticEcommerce
+          title="Total Order"
+          count="18,800"
+          percentage={27.4}
+          isLoss
+          color="warning"
+          extra="1,943"
+        />
       </Grid>
       <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
-        <AnalyticEcommerce title="Total Sales" count="35,078" percentage={27.4} isLoss color="warning" extra="20,395" />
+        <AnalyticEcommerce
+          title="Total Sales"
+          count="35,078"
+          percentage={27.4}
+          isLoss
+          color="warning"
+          extra="20,395"
+        />
       </Grid>
-      <Grid sx={{ display: { sm: 'none', md: 'block', lg: 'none' } }} size={{ md: 8 }} />
+      <Grid
+        sx={{ display: { sm: 'none', md: 'block', lg: 'none' } }}
+        size={{ md: 8 }}
+      />
       {/* row 2 */}
       <Grid size={{ xs: 12, md: 7, lg: 8 }}>
         <UniqueVisitorCard />
@@ -151,8 +204,11 @@ export default function DashboardDefault() {
                 py: 1.5,
                 px: 2,
                 '& .MuiAvatar-root': avatarSX,
-                '& .MuiListItemSecondaryAction-root': { ...actionSX, position: 'relative' }
-              }
+                '& .MuiListItemSecondaryAction-root': {
+                  ...actionSX,
+                  position: 'relative',
+                },
+              },
             }}
           >
             <ListItem
@@ -170,11 +226,18 @@ export default function DashboardDefault() {
               }
             >
               <ListItemAvatar>
-                <Avatar sx={{ color: 'success.main', bgcolor: 'success.lighter' }}>
+                <Avatar
+                  sx={{ color: 'success.main', bgcolor: 'success.lighter' }}
+                >
                   <GiftOutlined />
                 </Avatar>
               </ListItemAvatar>
-              <ListItemText primary={<Typography variant="subtitle1">Order #002434</Typography>} secondary="Today, 2:00 AM" />
+              <ListItemText
+                primary={
+                  <Typography variant="subtitle1">Order #002434</Typography>
+                }
+                secondary="Today, 2:00 AM"
+              />
             </ListItem>
             <ListItem
               component={ListItemButton}
@@ -191,11 +254,18 @@ export default function DashboardDefault() {
               }
             >
               <ListItemAvatar>
-                <Avatar sx={{ color: 'primary.main', bgcolor: 'primary.lighter' }}>
+                <Avatar
+                  sx={{ color: 'primary.main', bgcolor: 'primary.lighter' }}
+                >
                   <MessageOutlined />
                 </Avatar>
               </ListItemAvatar>
-              <ListItemText primary={<Typography variant="subtitle1">Order #984947</Typography>} secondary="5 August, 1:45 PM" />
+              <ListItemText
+                primary={
+                  <Typography variant="subtitle1">Order #984947</Typography>
+                }
+                secondary="5 August, 1:45 PM"
+              />
             </ListItem>
             <ListItem
               component={ListItemButton}
@@ -215,7 +285,12 @@ export default function DashboardDefault() {
                   <SettingOutlined />
                 </Avatar>
               </ListItemAvatar>
-              <ListItemText primary={<Typography variant="subtitle1">Order #988784</Typography>} secondary="7 hours ago" />
+              <ListItemText
+                primary={
+                  <Typography variant="subtitle1">Order #988784</Typography>
+                }
+                secondary="7 hours ago"
+              />
             </ListItem>
           </List>
         </MainCard>
@@ -233,7 +308,9 @@ export default function DashboardDefault() {
                 </Stack>
               </Grid>
               <Grid>
-                <AvatarGroup sx={{ '& .MuiAvatar-root': { width: 32, height: 32 } }}>
+                <AvatarGroup
+                  sx={{ '& .MuiAvatar-root': { width: 32, height: 32 } }}
+                >
                   <Avatar alt="Remy Sharp" src={avatar1} />
                   <Avatar alt="Travis Howard" src={avatar2} />
                   <Avatar alt="Cindy Baker" src={avatar3} />
@@ -241,12 +318,94 @@ export default function DashboardDefault() {
                 </AvatarGroup>
               </Grid>
             </Grid>
-            <Button size="small" variant="contained" sx={{ textTransform: 'capitalize' }}>
+            <Button
+              size="small"
+              variant="contained"
+              sx={{ textTransform: 'capitalize' }}
+            >
               Need Help?
             </Button>
           </Stack>
         </MainCard>
       </Grid>
+
+      <Grid size={{ xs: 12, md: 5, lg: 4 }}>
+        {/*titulo*/}
+        <Grid container alignItems="center" justifyContent="space-between">
+          <Grid>
+            <Typography variant="h5">Descargar Reportes</Typography>
+          </Grid>
+          <Grid />
+        </Grid>
+        {/*List*/}
+        <MainCard
+          sx={{
+            mt: 2,
+            p: 2,
+            borderRadius: 3,
+            boxShadow: 3,
+          }}
+        >
+          <List
+            component="nav"
+            disablePadding
+            sx={{
+              '& .MuiListItem-root': {
+                p: 2,
+                borderRadius: 2,
+                transition: 'background-color 0.2s ease',
+                '&:hover': {
+                  backgroundColor: 'action.hover',
+                },
+              },
+              '& .MuiButton-root': {
+                borderRadius: 2,
+                textTransform: 'none',
+                px: 3,
+              },
+              '& .MuiDivider-root': {
+                my: 1.5,
+              },
+            }}
+          >
+            <ListItem
+              secondaryAction={
+                <Button variant="contained" size="small" onClick={handleReportDownload}>
+                  Descargar
+                </Button>
+              }
+            >
+              <Stack spacing={0.5}>
+                <Typography variant="subtitle1" fontWeight={600}>
+                  Productos
+                </Typography>
+                <Typography variant="caption" color="text.secondary">
+                  Pdf detallado de productos
+                </Typography>
+              </Stack>
+            </ListItem>
+
+            <Divider />
+
+            <ListItem
+              secondaryAction={
+                <Button variant="contained" size="small">
+                  Need Help?
+                </Button>
+              }
+            >
+              <Stack spacing={0.5}>
+                <Typography variant="subtitle1" fontWeight={600}>
+                  Help & Support Chat
+                </Typography>
+                <Typography variant="caption" color="text.secondary">
+                  Typical reply within 5 min
+                </Typography>
+              </Stack>
+            </ListItem>
+          </List>
+        </MainCard>
+      </Grid>
     </Grid>
-  );
+  )
 }
