@@ -1,11 +1,89 @@
-.carousel {
+/* Banner.css - Estilos mejorados para el banner */
+
+.banner-section .carousel {
     height: 500px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
-img {
+
+.banner-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.banner-section .carousel-item,
+.banner-section .carousel-cont-item {
     width: 100%;
     height: 100%;
 }
-.carousel-item ,.carousel-cont-item{
-    width: 100%;
-    height: 100%;
+
+.banner-section .carousel-indicators {
+    bottom: 20px;
+}
+
+.banner-section .carousel-indicators button {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid #fff;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+}
+
+.banner-section .carousel-indicators .active {
+    background-color: #ff9bd2;
+    border-color: #000;
+    transform: scale(1.2);
+}
+
+.banner-section .carousel-control-prev,
+.banner-section .carousel-control-next {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+}
+
+.banner-section .carousel-control-prev:hover,
+.banner-section .carousel-control-next:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.banner-section .carousel-control-prev-icon,
+.banner-section .carousel-control-next-icon {
+    filter: invert(1);
+    width: 25px;
+    height: 25px;
+}
+
+/* Responsive design para el banner */
+@media (max-width: 768px) {
+    .banner-section .carousel {
+        height: 300px;
+    }
+    
+    .banner-section .carousel-control-prev,
+    .banner-section .carousel-control-next {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 576px) {
+    .banner-section .carousel {
+        height: 250px;
+    }
+    
+    .banner-section .carousel-indicators button {
+        width: 10px;
+        height: 10px;
+    }
 }

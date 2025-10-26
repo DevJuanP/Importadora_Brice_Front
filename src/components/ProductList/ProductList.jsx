@@ -1,4 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react'
+import { useNavigate, useSearchParams, useLocation } from 'react-router-dom'
+import { useCart } from '../../context/CartContext.jsx'
+import { useSearch } from '../../context/SearchContext.jsx'
 import './ProductList.css'
 
 const ProductList = () => {
@@ -6,7 +9,37 @@ const ProductList = () => {
     const [error, setError] = useState(null)
     const [orden, setOrden] = useState('Relevante')
     const [filtros, setFiltros] = useState({ categorias: [] })
+    const [searchParams, setSearchParams] = useSearchParams()
+    const navigate = useNavigate()
+    const location = useLocation()
+    const { agregarCarrito } = useCart()
+    const { searchResults, searchTerm, isSearching } = useSearch()
 
+    // filtro de categorias menu
+    useEffect(() => {
+        const categoriaURL = searchParams.get('categoria')
+        if (categoriaURL) {
+            // Convertir el valor de la URL al formato de tu categoría
+            // Por ejemplo: "hogar-cocina" -> "Hogar y Cocina"
+            const categoriasMap = {
+            'hogar-cocina': 'Hogar y Cocina',
+            'viaje-camping': 'Viaje y Camping',
+            'limpieza': 'Limpieza y Cuidado del Hogar',
+            'electronica': 'Electrónica y Tecnología',
+            'deportes': 'Deportes y Fitness',
+            'oficina': 'Oficina y Escolar',
+            'jardineria': 'Jardinería',
+            'cuidado-personal': 'Cuidado Personal',
+            }
+
+            const categoriaNombre = categoriasMap[categoriaURL]
+            if (categoriaNombre) {
+            setFiltros({ categorias: [categoriaNombre] })
+            }
+        }
+    }, [searchParams])
+
+    // conexion de productos
     useEffect(() => {
         const fetchProductos = async () => {
         try {
@@ -43,7 +76,17 @@ const ProductList = () => {
         return matchCategoria
     })
 
-    const productosOrdenados = productosFiltrados.sort((a, b) => {
+    // Usar resultados de búsqueda si hay un término de búsqueda activo
+    const productosParaMostrar = searchTerm && searchResults.length > 0 
+        ? searchResults.filter((producto) => {
+            const matchCategoria =
+            filtros.categorias.length === 0 ||
+            filtros.categorias.includes(producto.categoria)
+            return matchCategoria
+        })
+        : productosFiltrados
+
+    const productosOrdenados = productosParaMostrar.sort((a, b) => {
         if (orden === 'Precio: Menor a Mayor') {
         return a.precio - b.precio
         } else if (orden === 'Precio: Mayor a Menor') {
@@ -51,120 +94,163 @@ const ProductList = () => {
         }
         return 0
     })
+    
+    const handleImageClick = (id) => {
+        navigate(`/productos/${id}`)
+    }
+
+    const handleAddToCart = (producto) => {
+        console.log('=== CLICK EN BOTÓN AÑADIR ===');
+        console.log('Producto desde ProductList:', producto);
+        console.log('ID del producto:', producto.id);
+        console.log('Nombre del producto:', producto.nombre);
+        agregarCarrito(producto)
+    }
 
     return (
         <Fragment>
-        <section className="main-content">
+            <section className="main-content">
             <aside className="filters">
-            <h2>
+                <h2>
                 <i className="bi bi-funnel-fill"></i> FILTROS
-            </h2>
-            <div className="filter-category">
+                </h2>
+                <div className="filter-category">
                 <h3>CATEGORIAS</h3>
                 <label>
-                <input
+                    <input
                     type="checkbox"
+                    checked={filtros.categorias.includes('Hogar y Cocina')}
                     onChange={() => toggleFiltros('categorias', 'Hogar y Cocina')}
-                />
-                <span>Hogar y Cocina</span>
+                    />
+                    <span>Hogar y Cocina</span>
                 </label>
                 <label>
-                <input
+                    <input
                     type="checkbox"
-                    onChange={() => toggleFiltros('categorias', 'Viaje y Camping')}
-                />
-                <span>Viaje y Camping</span>
-                </label>
-                <label>
-                <input
-                    type="checkbox"
+                    checked={filtros.categorias.includes('Viaje y Camping')}
                     onChange={() =>
-                    toggleFiltros('categorias', 'Limpieza y Cuidado del Hogar')
+                        toggleFiltros('categorias', 'Viaje y Camping')
                     }
-                />
-                <span>Limpieza y Cuidado del Hogar</span>
+                    />
+                    <span>Viaje y Camping</span>
                 </label>
                 <label>
-                <input
+                    <input
                     type="checkbox"
+                    checked={filtros.categorias.includes(
+                        'Limpieza y Cuidado del Hogar'
+                    )}
                     onChange={() =>
-                    toggleFiltros('categorias', 'Electrónica y Tecnología')
+                        toggleFiltros('categorias', 'Limpieza y Cuidado del Hogar')
                     }
-                />
-                <span>Electrónica y Tecnología</span>
+                    />
+                    <span>Limpieza y Cuidado del Hogar</span>
                 </label>
                 <label>
-                <input
+                    <input
                     type="checkbox"
+                    checked={filtros.categorias.includes(
+                        'Electrónica y Tecnología'
+                    )}
                     onChange={() =>
-                    toggleFiltros('categorias', 'Deportes y Fitness')
+                        toggleFiltros('categorias', 'Electrónica y Tecnología')
                     }
-                />
-                <span>Deportes y Fitness</span>
+                    />
+                    <span>Electrónica y Tecnología</span>
                 </label>
                 <label>
-                <input
+                    <input
                     type="checkbox"
+                    checked={filtros.categorias.includes('Deportes y Fitness')}
                     onChange={() =>
-                    toggleFiltros('categorias', 'Oficina y Escolar')
+                        toggleFiltros('categorias', 'Deportes y Fitness')
                     }
-                />
-                <span>Oficina y Escolar</span>
+                    />
+                    <span>Deportes y Fitness</span>
                 </label>
                 <label>
-                <input
+                    <input
                     type="checkbox"
+                    checked={filtros.categorias.includes('Oficina y Escolar')}
+                    onChange={() =>
+                        toggleFiltros('categorias', 'Oficina y Escolar')
+                    }
+                    />
+                    <span>Oficina y Escolar</span>
+                </label>
+                <label>
+                    <input
+                    type="checkbox"
+                    checked={filtros.categorias.includes('Jardinería')}
                     onChange={() => toggleFiltros('categorias', 'Jardinería')}
-                />
-                <span>Jardinería</span>
+                    />
+                    <span>Jardinería</span>
                 </label>
                 <label>
-                <input
+                    <input
                     type="checkbox"
-                    onChange={() => toggleFiltros('categorias', 'Cuidado Personal')}
-                />
-                <span>Cuidado Personal</span>
-                </label>
-            </div>
-            </aside>
-            <main className="collections">
-            <div className="options">
-                <h2>TODOS LOS PRODUCTOS</h2>
-                <div className="sort-options">
-                <label>
-                    <span className="me-3">Ordenar por:</span>
-                    <select
-                    className="sort-select"
-                    onChange={handleOrdenChange}
-                    value={orden}
-                    >
-                    <option>Relevante</option>
-                    <option>Precio: Menor a Mayor</option>
-                    <option>Precio: Mayor a Menor</option>
-                    </select>
+                    checked={filtros.categorias.includes('Cuidado Personal')}
+                    onChange={() =>
+                        toggleFiltros('categorias', 'Cuidado Personal')
+                    }
+                    />
+                    <span>Cuidado Personal</span>
                 </label>
                 </div>
-            </div>
-            <hr className="linea mt-1" />
-            <div className="products">
+            </aside>
+            <main className="collections">
+                <div className="options">
+                <h2>
+                    {searchTerm 
+                        ? `Resultados para "${searchTerm}" (${productosOrdenados.length} productos)`
+                        : 'TODOS LOS PRODUCTOS'
+                    }
+                </h2>
+                <div className="sort-options">
+                    <label>
+                    <span className="me-3">Ordenar por:</span>
+                    <select
+                        className="sort-select"
+                        onChange={handleOrdenChange}
+                        value={orden}
+                    >
+                        <option>Relevante</option>
+                        <option>Precio: Menor a Mayor</option>
+                        <option>Precio: Mayor a Menor</option>
+                    </select>
+                    </label>
+                </div>
+                </div>
+                <hr className="linea mt-1" />
+                <div className="products">
                 {error ? (
-                <p className="error-message">{error}</p>
-                ) : productosFiltrados.length > 0 ? (
-                productosOrdenados.map((p) => (
+                    <p className="error-message">{error}</p>
+                ) : productosParaMostrar.length > 0 ? (
+                    productosOrdenados.map((p) => (
                     <div className="product-card" key={p.id}>
-                    <img src={p.img} alt="img-producto" />
-                    <h3>{p.nombre}</h3>
-                    <p>S/ {p.precio}</p>
+                        <img
+                        src={p.img}
+                        alt="img-producto"
+                        onClick={() => handleImageClick(p.id)}
+                        />
+                        <h3>{p.nombre}</h3>
+                        <p>S/ {p.precio}</p>
+                        <button 
+                            className="btn-add-cart"
+                            onClick={() => handleAddToCart(p)}
+                        >
+                            Añadir al carrito
+                        </button>
                     </div>
-                ))
+                    ))
                 ) : (
-                <p className="no-results">
+                    <p className="no-results">
                     No hay productos que coinciden con los filtros seleccionados
-                </p>
+                    </p>
                 )}
-            </div>
+                </div>
             </main>
-        </section>
+            </section>
         </Fragment>
     )
 }

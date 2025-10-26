@@ -19,6 +19,10 @@ import DashboardLayout from './layout/Dashboard/index.jsx'
 import Loadable from './components/Loadable.jsx'
 
 import ProductList from './components/ProductList/ProductList.jsx'
+import CartModal from './components/CartModal/CartModal.jsx'
+import CartPage from './pages/cart/CartPage.jsx'
+import { CartProvider } from './context/CartContext.jsx'
+import { SearchProvider } from './context/SearchContext.jsx'
 
 const DashboardDefault = Loadable(
   lazy(() => import('./pages/dashboard/default.jsx'))
@@ -40,33 +44,39 @@ const RegisterPage = Loadable(lazy(() => import('./pages/auth/Register.jsx')))
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <ThemeCustomization>
-      <ScrollTop>
-        <BrowserRouter>
-          <Routes>
-            {/* Layout principal (tu App.jsx con Header y Footer) */}
-            <Route path="/" element={<App />}>
-              <Route index element={<Home />} />
-              <Route path="productos" element={<ProductList />} />
-              <Route path="*" element={<h1>404 Not Found</h1>} />
-            </Route>
+    <CartProvider>
+      <SearchProvider>
+        <ThemeCustomization>
+          <ScrollTop>
+            <BrowserRouter>
+              <Routes>
+                {/* Layout principal (tu App.jsx con Header y Footer) */}
+                <Route path="/" element={<App />}>
+                  <Route index element={<Home />} />
+                  <Route path="productos" element={<ProductList />} />
+                  <Route path="carrito" element={<CartPage />} />
+                  <Route path="productos/:id" element={<ProductList />} />
+                  <Route path="*" element={<h1>404 Not Found</h1>} />
+                </Route>
 
-            {/* Página de login fuera del layout */}
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<RegisterPage />} />
+                {/* Página de login fuera del layout */}
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<RegisterPage />} />
 
-            {/* Rutas del Dashboard (con su propio layout) */}
-            <Route path="/dashboard" element={<DashboardLayout />}>
-              <Route index element={<DashboardDefault />} />
-              <Route path="default" element={<DashboardDefault />} />
-              <Route path="typography" element={<Typography />} />
-              <Route path="color" element={<Color />} />
-              <Route path="shadow" element={<Shadow />} />
-              <Route path="sample-page" element={<SamplePage />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
-      </ScrollTop>
-    </ThemeCustomization>
+                {/* Rutas del Dashboard (con su propio layout) */}
+                <Route path="/dashboard" element={<DashboardLayout />}>
+                  <Route index element={<DashboardDefault />} />
+                  <Route path="default" element={<DashboardDefault />} />
+                  <Route path="typography" element={<Typography />} />
+                  <Route path="color" element={<Color />} />
+                  <Route path="shadow" element={<Shadow />} />
+                  <Route path="sample-page" element={<SamplePage />} />
+                </Route>
+              </Routes>
+            </BrowserRouter>
+          </ScrollTop>
+        </ThemeCustomization>
+      </SearchProvider>
+    </CartProvider>
   </StrictMode>
 )

@@ -1,7 +1,106 @@
 
+/* Oferta.css - Estilos mejorados para las ofertas */
 
-@media (min-width: 1000px) {
-.card-pe {
-    width: 19.8%;
+.ofertas-section .row {
+    margin: 0;
+    gap: 20px;
 }
+
+.ofertas-section .card-gr {
+    background-color: #fff;
+    border: 3px solid #ff9bd2;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(255, 155, 210, 0.2);
+}
+
+.ofertas-section .card-gr:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(255, 155, 210, 0.3);
+    border-color: #000;
+}
+
+.ofertas-section .card-pe {
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.ofertas-section .card-pe:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    border-color: #ff9bd2;
+}
+
+.ofertas-section .card-text {
+    color: #000 !important;
+    font-weight: bold;
+    margin: 15px 0 10px 0;
+    text-align: center;
+    padding: 0 10px;
+}
+
+.ofertas-section .card-precio {
+    color: #ff9bd2 !important;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.ofertas-section .card-header {
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.ofertas-section .card-header img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.ofertas-section .card-gr:hover .card-header img,
+.ofertas-section .card-pe:hover .card-header img {
+    transform: scale(1.05);
+}
+
+/* Responsive design para ofertas */
+@media (min-width: 1000px) {
+    .ofertas-section .card-pe {
+        width: 19.8%;
+    }
+}
+
+@media (max-width: 768px) {
+    .ofertas-section .card-gr {
+        margin-bottom: 20px;
+    }
+    
+    .ofertas-section .card-pe {
+        margin-bottom: 15px;
+    }
+    
+    .ofertas-section .card-header img {
+        height: 150px;
+    }
+}
+
+@media (max-width: 576px) {
+    .ofertas-section .card-header img {
+        height: 120px;
+    }
+    
+    .ofertas-section .card-text {
+        font-size: 0.9rem;
+    }
+    
+    .ofertas-section .card-precio {
+        font-size: 1.4rem;
+    }
 }

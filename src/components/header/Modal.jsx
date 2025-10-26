@@ -39,43 +39,49 @@ const Modal = () => {
         <div className="offcanvas-body">
           <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li className="nav-item">
-              <Link className="nav-link" to="/productos">
+              <Link className="nav-link" to="/productos?categoria=hogar-cocina">
                 <i className="bi bi-house-fill"></i> Hogar y Cocina
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/productos">
+              <Link
+                className="nav-link"
+                to="/productos?categoria=viaje-camping"
+              >
                 <i className="bi bi-backpack-fill"></i> Viaje y Camping
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/productos">
+              <Link className="nav-link" to="/productos?categoria=limpieza">
                 <i className="bi bi-bucket-fill"></i> Limpieza y Cuidado del
                 Hogar
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/productos">
+              <Link className="nav-link" to="/productos?categoria=electronica">
                 <i className="bi bi-phone"></i> Electrónica y Tecnología
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/productos">
+              <Link className="nav-link" to="/productos?categoria=deportes">
                 <i className="bi bi-dribbble"></i> Deportes y Fitness
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/productos">
+              <Link className="nav-link" to="/productos?categoria=oficina">
                 <i className="bi bi-briefcase-fill"></i> Oficina y Escolar
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/productos">
+              <Link className="nav-link" to="/productos?categoria=jardineria">
                 <i className="bi bi-flower1"></i> Jardinería
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/productos">
+              <Link
+                className="nav-link"
+                to="/productos?categoria=cuidado-personal"
+              >
                 <i className="bi bi-bag-heart-fill"></i> Cuidado Personal
               </Link>
             </li>
@@ -83,56 +89,19 @@ const Modal = () => {
         </div>
 
         {admin && (
-        <div>
+          <div>
             <div className="offcanvas-header">
-          <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
-            ADMIN
-          </h5>
-        </div>
-        <div className="offcanvas-body">
-          <Link className="nav-link" to="/dashboard">
-            <i class="bi bi-person-fill-lock"></i> Dashboard
-          </Link>
-        </div>
-        </div>
-      )}
-
-      </div>
-        
-      
-      {/* Modal ubicación */}
-      <div
-        className="modal fade"
-        id="exampleModal"
-        tabIndex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h1 className="modal-title fs-5" id="exampleModalLabel">
-                Elige dónde recibir tus compras
-              </h1>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
+              <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
+                ADMIN
+              </h5>
             </div>
-            <div className="modal-body text-center">
-              Te mostraremos los productos disponibles en tu zona, junto con el
-              tiempo y costo de entrega.
-            </div>
-            <div className="modal-footer d-flex justify-content-center">
-              <button type="button" className="btn bg-dark text-white">
-                Aceptar
-              </button>
+            <div className="offcanvas-body">
+              <Link className="nav-link" to="/dashboard">
+                <i class="bi bi-person-fill-lock"></i> Dashboard
+              </Link>
             </div>
           </div>
-      
-        </div>
+        )}
       </div>
     </Fragment>
   )

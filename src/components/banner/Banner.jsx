@@ -25,22 +25,6 @@ const Banner = () => {
     }
   }, )
 
-  /*    const [user, setUser] = useState();
-
-    const prueba = async () => {
-        try {
-            const result = await axios.get('http://localhost:4000/users')
-            setUser(result.data)
-        } catch (error) {
-            console.log(error); 
-        }
-    } 
-
-        { <ol>{user && user.map(u =>(
-            <li key={u.Id}>{u.Nombre}</li>
-        )) }</ol>
-        <button type="button" onClick={prueba}>Mostrar usuarios</button> }*/
-
   return (
     <div className="container d-flex justify-content-center align-items-center p-5">
       <div

@@ -83,7 +83,12 @@ const Login = () => {
               alt="Google logo"
               style={{ width: '24px', height: '24px' }}
             />
-            <p className="mb-0">Continue con google</p>
+            <a
+              className="enlace mb-0"
+              href="https://accounts.google.com/login?hl=es"
+            >
+              Continue con google
+            </a>
           </button>
           <div className="text-center">
             ¿No tienes cuenta?
