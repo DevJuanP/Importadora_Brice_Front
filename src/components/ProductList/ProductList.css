@@ -120,8 +120,9 @@ input[type='checkbox'] {
 .product-card h3 {
   font-size: 14px;
   margin: 0;
-  font-weight: 400;
+  font-weight: bold;
   text-align: center;
+  font-size: 1.3rem;
 }
 
 .product-card p {
@@ -129,5 +130,6 @@ input[type='checkbox'] {
   font-weight: 600;
   color: #ff9bd2;
   text-align: center;
+  font-size: 1.5rem;
 }
 

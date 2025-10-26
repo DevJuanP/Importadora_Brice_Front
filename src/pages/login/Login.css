@@ -53,11 +53,12 @@
     color: #000000;
     margin-left: 50px;
 }
-.recordar input{
-    
-    margin-right: 5px;
-    margin-bottom: 14px;
+
+.recordar p {
+    padding-top: 12px;
+    padding-left: 5px;
 }
+
 .BTN{
     color: white;
     background-color: #FF9BD2;
@@ -71,6 +72,7 @@
     margin-top: 10px;
     border: transparent;
     transition: all 0.2s ease-in-out; 
+    text-decoration: none;
 }
 .BTN:hover, .google:hover{
     background-color: #CBCBCB;
@@ -107,4 +109,9 @@
     width: 30px;
     margin-left: 10px;
     color: #CBCBCB;
+}
+
+.enlace {
+    text-decoration: none;
+    color: #000;
 }

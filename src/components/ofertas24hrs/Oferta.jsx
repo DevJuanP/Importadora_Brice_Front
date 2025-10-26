@@ -35,7 +35,7 @@ export default function Oferta() {
           >
             <img src={oferta.img} alt="" className="card-header p-0" />
             <h3 className="card-text text-center">{oferta.nombre} </h3>
-            <h4 className="card-text text-center">S/ {oferta.precio} </h4>
+            <h4 className="card-precio text-center">S/ {oferta.precio} </h4>
           </div>
         ))}
 
@@ -43,7 +43,7 @@ export default function Oferta() {
           <div className="card card-pe p-0 col-md-5 col-lg-2" key={index}>
             <img src={oferta.img} alt="" className="card-header p-0" />
             <h5 className="card-text text-center">{oferta.nombre} </h5>
-            <h5 className="card-text text-center">{oferta.precio} </h5>
+            <h5 className="card-precio text-center">S/ {oferta.precio} </h5>
           </div>
         ))}
       </div>

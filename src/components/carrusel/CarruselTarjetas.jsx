@@ -1,146 +1,117 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import '../carrusel/CarruselTarjetas.css'
+
 const CarruselTarjetas = () => {
+    const [productos, setProductos] = useState([])
+    const [error, setError] = useState(null)
+
+    useEffect(() => {
+        const fetchProductos = async () => {
+        try {
+            const response = await fetch('http://localhost:4000/productos/')
+            if (!response.ok) {
+            throw new Error('Error al cargar productos')
+            }
+            const data = await response.json()
+
+            // Obtener 8 productos aleatorios
+            const productosAleatorios = data
+            .sort(() => Math.random() - 0.5)
+            .slice(0, 8)
+
+            setProductos(productosAleatorios)
+        } catch (err) {
+            setError(err.message)
+        }
+        }
+        fetchProductos()
+    }, [])
+
+    // Dividir productos en grupos de 4
+    const agruparProductos = (productos, tamano) => {
+        const grupos = []
+        for (let i = 0; i < productos.length; i += tamano) {
+        grupos.push(productos.slice(i, i + tamano))
+        }
+        return grupos
+    }
+
+    const gruposDeProductos = agruparProductos(productos, 4)
+
     return (
         <Fragment>
-        <div
-            className="mx-auto"
-            style={{ maxWidth: '72rem' }}
-        >
+        <div className="mx-auto" style={{ maxWidth: '72rem' }}>
             <hr
             className="d-block mx-auto"
-            style={{ width: '72rem' }}
+            style={{ width: '72rem', borderTop: '2px solid #333' }}
             />
-            <h6 className="mb-3">PRODUCTOS SOLO PARA TI</h6>
+            <h6 className="mb-3 fs-4 mt-4">PRODUCTOS SOLO PARA TI</h6>
         </div>
-        <div
+
+        {error ? (
+            <p className="text-center text-danger">{error}</p>
+        ) : (
+            <div
             id="carouselExample"
             className="carousel slide"
-            style={{ maxWidth: '1450px', maxHeight: '200px', margin: '0 auto' }}
-        >
-            {/* slide 1 */}
+            style={{ maxWidth: '1450px', margin: '0 auto' }}
+            >
             <div className="carousel-inner">
-            <div className="carousel-item active">
-                <div className="d-flex justify-content-center mb-5">
-                <div className="card" style={{ width: '18rem' }}>
-                    <img
-                    src="/src/img/maxresdefault.jpg"
-                    class="card-img-top"
-                    alt="img"
-                    />
-                    <div className="card-body">
-                    <p className="card-text">texto 1</p>
+                {gruposDeProductos.map((grupo, index) => (
+                <div
+                    key={index}
+                    className={`carousel-item ${index === 0 ? 'active' : ''}`}
+                >
+                    <div className="d-flex justify-content-center gap-3 mb-5">
+                    {grupo.map((producto) => (
+                        <div
+                        className="card"
+                        style={{ width: '18rem' }}
+                        key={producto.id}
+                        >
+                        <img
+                            src={producto.img}
+                            className="card-img-top"
+                            alt={producto.nombre}
+                            style={{ height: '200px', objectFit: 'contain' }}
+                        />
+                        <div className="card-body">
+                            <h6 className="card-title">{producto.nombre}</h6>
+                            <p className="card-text">S/ {producto.precio}</p>
+                        </div>
+                        </div>
+                    ))}
                     </div>
                 </div>
-                {/* tarjeta 2 */}
-                <div className="card" style={{ width: '18rem' }}>
-                    <img
-                    src="/src/img/maxresdefault.jpg"
-                    class="card-img-top"
-                    alt="img"
-                    />
-                    <div className="card-body">
-                    <p className="card-text">texto 2</p>
-                    </div>
-                </div>
-                {/* tarjeta 3 */}
-                <div className="card" style={{ width: '18rem' }}>
-                    <img
-                    src="/src/img/maxresdefault.jpg"
-                    class="card-img-top"
-                    alt="img"
-                    />
-                    <div className="card-body">
-                    <p className="card-text">texto 3</p>
-                    </div>
-                </div>
-                {/* tarjeta 4 */}
-                <div className="card" style={{ width: '18rem' }}>
-                    <img
-                    src="/src/img/maxresdefault.jpg"
-                    class="card-img-top"
-                    alt="img"
-                    />
-                    <div className="card-body">
-                    <p className="card-text">texto 4</p>
-                    </div>
-                </div>
-                </div>
+                ))}
             </div>
 
-            <div className="carousel-item">
-                <div className="d-flex justify-content-center">
-                <div className="card" style={{ width: '18rem' }}>
-                    <img
-                    src="/src/img/maxresdefault.jpg"
-                    class="card-img-top"
-                    alt="img"
-                    />
-                    <div className="card-body">
-                    <p className="card-text">texto 5</p>
-                    </div>
-                </div>
-                {/* tarjeta 6 */}
-                <div className="card" style={{ width: '18rem' }}>
-                    <img
-                    src="/src/img/maxresdefault.jpg"
-                    class="card-img-top"
-                    alt="img"
-                    />
-                    <div className="card-body">
-                    <p className="card-text">texto 6</p>
-                    </div>
-                </div>
-                {/* tarjeta 7 */}
-                <div className="card" style={{ width: '18rem' }}>
-                    <img
-                    src="/src/img/maxresdefault.jpg"
-                    class="card-img-top"
-                    alt="img"
-                    />
-                    <div className="card-body">
-                    <p className="card-text">texto 7</p>
-                    </div>
-                </div>
-                {/* tarjeta 8 */}
-                <div className="card" style={{ width: '18rem' }}>
-                    <img
-                    src="/src/img/maxresdefault.jpg"
-                    class="card-img-top"
-                    alt="img"
-                    />
-                    <div className="card-body">
-                    <p className="card-text">texto 8</p>
-                    </div>
-                </div>
-                </div>
-            </div>
-            </div>
             <button
-            className="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExample"
-            data-bs-slide="prev"
+                className="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExample"
+                data-bs-slide="prev"
             >
-            <span
+                <span
                 className="carousel-control-prev-icon"
                 aria-hidden="true"
-            ></span>
-            <span className="visually-hidden">Previous</span>
+                ></span>
+                <span className="visually-hidden">Previous</span>
             </button>
             <button
-            className="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExample"
-            data-bs-slide="next"
+                className="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExample"
+                data-bs-slide="next"
             >
-            <span
+                <span
                 className="carousel-control-next-icon"
                 aria-hidden="true"
-            ></span>
-            <span className="visually-hidden">Next</span>
+                ></span>
+                <span className="visually-hidden">Next</span>
             </button>
-        </div>
+            </div>
+        )}
         </Fragment>
     )
 }

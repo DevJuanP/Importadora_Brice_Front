@@ -5,3 +5,12 @@
     width: 19.8%;
 }
 }
+
+.card-text{
+    color: #000 !important;
+}
+
+.card-precio {
+    color: #ff9bd2 !important;
+    font-size: 1.8rem;
+}

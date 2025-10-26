@@ -1,23 +1,35 @@
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    height: 50px;
-    filter: invert(1);
-    background-color: #d9d9d9; 
-    border-radius: 6px;
-    transition: background-color 0.2s ease, transform 0.1s ease;
-    padding: 10px; 
+.carousel-control-prev,
+.carousel-control-next {
+    width: 40px;
+    height: 40px;
+    top: 30%;
+    background-color: white;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    opacity: 0.8;
 }
 
-/* Al pasar el mouse */
-.carousel-control-prev-icon:hover,
-.carousel-control-next-icon:hover {
-    background-color: #bfbfbf; 
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    opacity: 1;
+    background-color: #bfbfbf;
     transform: scale(1.05); 
 }
 
-/* Al presionar (click activo) */
-.carousel-control-prev-icon:active,
-.carousel-control-next-icon:active {
-    background-color: #a6a6a6; 
-    transform: scale(0.95); 
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1);
+    width: 20px;
+    height: 20px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.card-text {
+    font-size: 1.5rem;
+    color: #ff9bd2;
+    text-align: center;
 }
