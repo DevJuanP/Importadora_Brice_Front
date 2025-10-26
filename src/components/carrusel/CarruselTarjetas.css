@@ -1,35 +1,157 @@
-.carousel-control-prev,
-.carousel-control-next {
-    width: 40px;
-    height: 40px;
-    top: 30%;
-    background-color: white;
-    border: 2px solid #ddd;
-    border-radius: 10px;
-    opacity: 0.8;
+/* CarruselTarjetas.css - Estilos mejorados para el carrusel de productos */
+
+.productos-section .carousel {
+    padding: 20px 0;
 }
 
-.carousel-control-prev:hover,
-.carousel-control-next:hover {
-    opacity: 1;
-    background-color: #bfbfbf;
-    transform: scale(1.05); 
+.productos-section .card {
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 0 10px;
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    filter: invert(1);
-    width: 20px;
-    height: 20px;
+.productos-section .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(255, 155, 210, 0.2);
+    border-color: #ff9bd2;
 }
 
-.card-title {
-    font-size: 1.5rem;
+.productos-section .card-img-top {
+    background-color: #f8f8f8;
+    padding: 15px;
+    height: 200px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.productos-section .card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+.productos-section .card-body {
+    padding: 20px;
     text-align: center;
+    background-color: #fff;
 }
 
-.card-text {
-    font-size: 1.5rem;
+.productos-section .card-title {
+    color: #000;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    line-height: 1.3;
+    min-height: 2.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.productos-section .card-text {
     color: #ff9bd2;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Controles del carrusel */
+.productos-section .carousel-control-prev,
+.productos-section .carousel-control-next {
+    background-color: #ff9bd2;
+    border: 2px solid #000;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.productos-section .carousel-control-prev:hover,
+.productos-section .carousel-control-next:hover {
+    background-color: #ff7bc7;
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.productos-section .carousel-control-prev-icon,
+.productos-section .carousel-control-next-icon {
+    filter: invert(1);
+    width: 25px;
+    height: 25px;
+}
+
+/* Título de la sección */
+.productos-section h6 {
+    color: #000;
+    font-weight: bold;
+    font-size: 2rem;
     text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.productos-section h6::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #ff9bd2, #000);
+    border-radius: 2px;
+}
+
+/* Línea separadora */
+.separator-line {
+    border-top: 3px solid #ff9bd2;
+    margin: 30px auto;
+    width: 80%;
+    border-radius: 2px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .productos-section .card {
+        margin-bottom: 20px;
+    }
+    
+    .productos-section h6 {
+        font-size: 1.5rem;
+    }
+    
+    .productos-section .card-img-top {
+        height: 150px;
+    }
+    
+    .productos-section .carousel-control-prev,
+    .productos-section .carousel-control-next {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 576px) {
+    .productos-section .card-img-top {
+        height: 120px;
+        padding: 10px;
+    }
+    
+    .productos-section .card-body {
+        padding: 15px;
+    }
+    
+    .productos-section .card-title {
+        font-size: 1rem;
+        min-height: 2rem;
+    }
+    
+    .productos-section .card-text {
+        font-size: 1.2rem;
+    }
 }

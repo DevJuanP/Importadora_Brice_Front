@@ -1,5 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react'
-import { useNavigate, useSearchParams } from 'react-router-dom'
+import { useNavigate, useSearchParams, useLocation } from 'react-router-dom'
+import { useCart } from '../../context/CartContext.jsx'
+import { useSearch } from '../../context/SearchContext.jsx'
 import './ProductList.css'
 
 const ProductList = () => {
@@ -8,7 +10,10 @@ const ProductList = () => {
     const [orden, setOrden] = useState('Relevante')
     const [filtros, setFiltros] = useState({ categorias: [] })
     const [searchParams, setSearchParams] = useSearchParams()
-    const navigate = useNavigate() // ✅ Cambio aquí: sin corchetes
+    const navigate = useNavigate()
+    const location = useLocation()
+    const { agregarCarrito } = useCart()
+    const { searchResults, searchTerm, isSearching } = useSearch()
 
     // filtro de categorias menu
     useEffect(() => {
@@ -71,7 +76,17 @@ const ProductList = () => {
         return matchCategoria
     })
 
-    const productosOrdenados = productosFiltrados.sort((a, b) => {
+    // Usar resultados de búsqueda si hay un término de búsqueda activo
+    const productosParaMostrar = searchTerm && searchResults.length > 0 
+        ? searchResults.filter((producto) => {
+            const matchCategoria =
+            filtros.categorias.length === 0 ||
+            filtros.categorias.includes(producto.categoria)
+            return matchCategoria
+        })
+        : productosFiltrados
+
+    const productosOrdenados = productosParaMostrar.sort((a, b) => {
         if (orden === 'Precio: Menor a Mayor') {
         return a.precio - b.precio
         } else if (orden === 'Precio: Mayor a Menor') {
@@ -82,6 +97,14 @@ const ProductList = () => {
     
     const handleImageClick = (id) => {
         navigate(`/productos/${id}`)
+    }
+
+    const handleAddToCart = (producto) => {
+        console.log('=== CLICK EN BOTÓN AÑADIR ===');
+        console.log('Producto desde ProductList:', producto);
+        console.log('ID del producto:', producto.id);
+        console.log('Nombre del producto:', producto.nombre);
+        agregarCarrito(producto)
     }
 
     return (
@@ -177,7 +200,12 @@ const ProductList = () => {
             </aside>
             <main className="collections">
                 <div className="options">
-                <h2>TODOS LOS PRODUCTOS</h2>
+                <h2>
+                    {searchTerm 
+                        ? `Resultados para "${searchTerm}" (${productosOrdenados.length} productos)`
+                        : 'TODOS LOS PRODUCTOS'
+                    }
+                </h2>
                 <div className="sort-options">
                     <label>
                     <span className="me-3">Ordenar por:</span>
@@ -197,7 +225,7 @@ const ProductList = () => {
                 <div className="products">
                 {error ? (
                     <p className="error-message">{error}</p>
-                ) : productosFiltrados.length > 0 ? (
+                ) : productosParaMostrar.length > 0 ? (
                     productosOrdenados.map((p) => (
                     <div className="product-card" key={p.id}>
                         <img
@@ -207,6 +235,12 @@ const ProductList = () => {
                         />
                         <h3>{p.nombre}</h3>
                         <p>S/ {p.precio}</p>
+                        <button 
+                            className="btn-add-cart"
+                            onClick={() => handleAddToCart(p)}
+                        >
+                            Añadir al carrito
+                        </button>
                     </div>
                     ))
                 ) : (

@@ -1,9 +1,15 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import '../carrusel/CarruselTarjetas.css'
+import { useNavigate } from 'react-router-dom'
 
 const CarruselTarjetas = () => {
     const [productos, setProductos] = useState([])
     const [error, setError] = useState(null)
+    const navigate = useNavigate()
+
+    const handleCardClick = (productoId) => {
+        navigate(`/productos/${productoId}`)
+    }
 
     useEffect(() => {
         const fetchProductos = async () => {
@@ -66,8 +72,9 @@ const CarruselTarjetas = () => {
                     {grupo.map((producto) => (
                         <div
                         className="card"
-                        style={{ width: '18rem' }}
                         key={producto.id}
+                        onClick={() => handleCardClick(producto.id)}
+                        style={{ width: '18rem', cursor: 'pointer' }}
                         >
                         <img
                             src={producto.img}

@@ -2,9 +2,15 @@ import React from 'react'
 import './Oferta.css'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export default function Oferta() {
   const [ofertas, SetOfertas] = useState([])
+  const navigate = useNavigate()
+
+  const handleCardClick = (productoId) => {
+    navigate(`/productos/${productoId}`)
+  }
 
   useEffect(() => {
     const getOfertas = async () => {
@@ -32,6 +38,8 @@ export default function Oferta() {
           <div
             className="card card-gr p-0 col-12 col-md-12 col-lg-5"
             key={index}
+            onClick={() => handleCardClick(oferta.id)}
+            style={{ cursor: 'pointer' }}
           >
             <img src={oferta.img} alt="" className="card-header p-0" />
             <h3 className="card-text text-center">{oferta.nombre} </h3>
@@ -40,7 +48,12 @@ export default function Oferta() {
         ))}
 
         {ofertas.slice(3, 7).map((oferta, index) => (
-          <div className="card card-pe p-0 col-md-5 col-lg-2" key={index}>
+          <div 
+            className="card card-pe p-0 col-md-5 col-lg-2" 
+            key={index}
+            onClick={() => handleCardClick(oferta.id)}
+            style={{ cursor: 'pointer' }}
+          >
             <img src={oferta.img} alt="" className="card-header p-0" />
             <h5 className="card-text text-center">{oferta.nombre} </h5>
             <h5 className="card-precio text-center">S/ {oferta.precio} </h5>

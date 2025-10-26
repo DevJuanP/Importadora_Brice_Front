@@ -1,0 +1,262 @@
+/* Home.css - Estilos para la página principal */
+
+/* Estilos generales de la página principal */
+.home-page {
+    background-color: #f8f8f8;
+    min-height: 100vh;
+}
+
+/* Estilos para el banner principal */
+.banner-section {
+    background: linear-gradient(135deg, #ff9bd2 0%, #ff7bc7 100%);
+    padding: 20px 0;
+    margin-bottom: 30px;
+}
+
+.banner-section .carousel {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.banner-section .carousel-item img {
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.banner-section .carousel-indicators button {
+    background-color: #000;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+}
+
+.banner-section .carousel-indicators .active {
+    background-color: #fff;
+    border-color: #000;
+}
+
+.banner-section .carousel-control-prev,
+.banner-section .carousel-control-next {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.banner-section .carousel-control-prev:hover,
+.banner-section .carousel-control-next:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+/* Estilos para la sección de ofertas */
+.ofertas-section {
+    background-color: #fff;
+    padding: 40px 0;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.ofertas-section .row {
+    margin: 0;
+}
+
+.ofertas-section .card-gr {
+    background-color: #f8f8f8;
+    border: 3px solid #ff9bd2;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.ofertas-section .card-gr:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(255, 155, 210, 0.3);
+    border-color: #000;
+}
+
+.ofertas-section .card-pe {
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.ofertas-section .card-pe:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    border-color: #ff9bd2;
+}
+
+.ofertas-section .card-text {
+    color: #000 !important;
+    font-weight: bold;
+    margin: 15px 0 10px 0;
+}
+
+.ofertas-section .card-precio {
+    color: #ff9bd2 !important;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.ofertas-section .card-header {
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+}
+
+/* Estilos para el carrusel de productos */
+.productos-section {
+    background-color: #fff;
+    padding: 40px 0;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.productos-section h6 {
+    color: #000;
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.productos-section h6::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #ff9bd2, #000);
+    border-radius: 2px;
+}
+
+.productos-section .carousel {
+    padding: 20px 0;
+}
+
+.productos-section .card {
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.productos-section .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(255, 155, 210, 0.2);
+    border-color: #ff9bd2;
+}
+
+.productos-section .card-img-top {
+    background-color: #f8f8f8;
+    padding: 15px;
+}
+
+.productos-section .card-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.productos-section .card-title {
+    color: #000;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.productos-section .card-text {
+    color: #ff9bd2;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Controles del carrusel */
+.productos-section .carousel-control-prev,
+.productos-section .carousel-control-next {
+    background-color: #ff9bd2;
+    border: 2px solid #000;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.9;
+}
+
+.productos-section .carousel-control-prev:hover,
+.productos-section .carousel-control-next:hover {
+    background-color: #ff7bc7;
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.productos-section .carousel-control-prev-icon,
+.productos-section .carousel-control-next-icon {
+    filter: invert(1);
+    width: 25px;
+    height: 25px;
+}
+
+/* Línea separadora */
+.separator-line {
+    border-top: 3px solid #ff9bd2;
+    margin: 30px auto;
+    width: 80%;
+    border-radius: 2px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .banner-section .carousel {
+        height: 300px;
+    }
+    
+    .ofertas-section .card-gr {
+        margin-bottom: 20px;
+    }
+    
+    .ofertas-section .card-pe {
+        margin-bottom: 15px;
+    }
+    
+    .productos-section .card {
+        margin-bottom: 20px;
+    }
+    
+    .productos-section h6 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .banner-section {
+        padding: 10px 0;
+    }
+    
+    .ofertas-section,
+    .productos-section {
+        padding: 20px 0;
+    }
+    
+    .productos-section .carousel-control-prev,
+    .productos-section .carousel-control-next {
+        width: 40px;
+        height: 40px;
+    }
+}
